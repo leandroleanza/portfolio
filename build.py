@@ -147,8 +147,7 @@ def slideshow(slug, names, depth, controls=True):
 {thumbs}
   </div>
   <footer class="gallery-controls">
-    <div class="pager"><button class="prev-slide">prev</button> / <button class="next-slide">next</button></div>
-    <button class="thumbnail-toggle">show thumbnails</button>
+    <div class="pager"><button class="prev-slide">prev</button> / <button class="next-slide">next</button> <span class="sep">•</span> <button class="thumbnail-toggle">show thumbnails</button></div>
   </footer>
 </main>"""
 
