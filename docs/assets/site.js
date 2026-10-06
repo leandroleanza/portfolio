@@ -58,7 +58,6 @@
     else if (t.classList.contains('next-slide')) show(current + 1);
     else if (t.classList.contains('num') || t.classList.contains('thumb')) {
       show(parseInt(t.getAttribute('data-index'), 10));
-      if (t.classList.contains('thumb')) setThumbs(false);
     }
   });
 
@@ -66,7 +65,6 @@
     if (!thumbsWrap) return;
     thumbsWrap.hidden = !on;
     gallery.classList.toggle('show-thumbs', on);
-    if (toggleThumbs) toggleThumbs.textContent = on ? 'hide thumbnails' : 'show thumbnails';
   }
   if (toggleThumbs) toggleThumbs.addEventListener('click', function () { setThumbs(thumbsWrap.hidden); });
 
@@ -86,4 +84,5 @@
   });
 
   apply(0);
+  setThumbs(true);
 })();
