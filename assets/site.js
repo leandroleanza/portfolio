@@ -28,14 +28,28 @@
   var toggleThumbs = gallery.querySelector('.thumbnail-toggle');
   var current = 0;
 
-  function show(i) {
-    if (!slides.length) return;
-    current = (i + slides.length) % slides.length;
+  var token = 0;
+
+  function apply(idx) {
+    current = idx;
     slides.forEach(function (s, k) { s.classList.toggle('is-active', k === current); });
     nums.forEach(function (n, k) { n.classList.toggle('is-active', k === current); });
-    var next = slides[(current + 1) % slides.length].querySelector('img');
-    if (next) next.loading = 'eager';
   }
+
+  function show(i) {
+    if (!slides.length) return;
+    var idx = (i + slides.length) % slides.length;
+    var img = slides[idx].querySelector('img');
+    var mine = ++token;
+    var go = function () { if (mine === token) apply(idx); };
+    if (img && img.decode) img.decode().then(go, go);
+    else go();
+  }
+
+  slides.forEach(function (s) {
+    var img = s.querySelector('img');
+    if (img) img.loading = 'eager';
+  });
 
   gallery.addEventListener('click', function (e) {
     var t = e.target.closest('button');
@@ -71,5 +85,5 @@
     x0 = null;
   });
 
-  show(0);
+  apply(0);
 })();
