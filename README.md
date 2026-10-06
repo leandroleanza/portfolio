@@ -16,3 +16,4 @@ Sito statico generato da cartelle. Nessuna dipendenza oltre a Python 3.
 
 ## Pubblicazione
 GitHub Pages: Settings → Pages → Branch `main`, cartella `/docs`.
+ 
