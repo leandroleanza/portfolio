@@ -100,6 +100,9 @@ def layout(site, title, body, depth, current, projects, has_books, has_info, bod
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(page_title)}</title>
 <meta name="description" content="{esc(site.get('description', ''))}">
+<link rel="icon" href="{base}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{base}assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="{base}assets/favicon.png">
 <link rel="stylesheet" href="{base}assets/style.css">
 </head>
 <body class="{body_class}">
