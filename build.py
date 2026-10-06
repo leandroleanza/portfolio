@@ -161,6 +161,8 @@ def main():
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
     (OUT / ".nojekyll").write_text("")
+    if (ROOT / "CNAME").exists():
+        shutil.copy2(ROOT / "CNAME", OUT / "CNAME")
 
     # progetti
     projects = []
